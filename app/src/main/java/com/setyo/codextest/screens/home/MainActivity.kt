@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
+import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.gson.Gson
@@ -30,11 +31,9 @@ class MainActivity : AppCompatActivity() ,MainView {
     var context: CoroutineContextProvider? = CoroutineContextProvider()
 
 
-//    var list: List<NewsResponse> = null
     private var listData: MutableList<NewsResponse> = mutableListOf()
 
     private lateinit var newsAdapter: NewsAdapter
-    private lateinit var listNews: RecyclerView
     private lateinit var progressBar: ProgressBar
 
     override fun failed(pesan: String) {
@@ -42,10 +41,13 @@ class MainActivity : AppCompatActivity() ,MainView {
     }
 
     override fun showLoading() {
+        progressBar.visibility = View.VISIBLE
 
     }
 
     override fun hideLoading() {
+        progressBar.visibility = View.INVISIBLE
+
 
     }
 
@@ -72,8 +74,6 @@ class MainActivity : AppCompatActivity() ,MainView {
 
         presenter.getTopStories()
 
-
-
     }
 
 
@@ -94,11 +94,9 @@ class MainActivity : AppCompatActivity() ,MainView {
 
     override fun success(data: List<String>?) {
 
-        for (i in 1..8) {
+        for (i in 0..8) {
             presenter.getNewsData(data?.get(i))
         }
-
-
 
     }
 
@@ -107,9 +105,7 @@ class MainActivity : AppCompatActivity() ,MainView {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("dataParcel",partItem)
         startActivity(intent)
-
     }
-
 
 
 }

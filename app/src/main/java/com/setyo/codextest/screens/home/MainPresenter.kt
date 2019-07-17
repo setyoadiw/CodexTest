@@ -26,15 +26,6 @@ class MainPresenter(
         this.context = CoroutineContextProvider()
     }
 
-//    var MainView : MainView? = null
-//
-//    var data : ArrayList<NewsResponse>? = null
-//
-//    constructor(MainView : MainView?){
-//        this.MainView = MainView
-//        this.data = data
-//    }
-
     override fun getNewsData(newsId: String?) {
 
         MainView.showLoading()
@@ -44,9 +35,7 @@ class MainPresenter(
                 .doRequest(Network.getNews(newsId)).await(),
                 NewsResponse::class.java
             )
-            Log.d("masuk presenter:dawdawd", data.toString())
             MainView.setadapter(listOf(data))
-
 
             MainView.hideLoading()
 
@@ -63,9 +52,6 @@ class MainPresenter(
                 if (response.isSuccessful) {
 
                     val topStories: List<String>? = response.body()
-
-                    val data = response.body()
-                    Log.d("tagres", topStories.toString())
 
                     MainView.success(topStories)
 
