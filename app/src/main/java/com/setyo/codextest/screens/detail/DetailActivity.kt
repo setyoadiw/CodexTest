@@ -20,6 +20,7 @@ class DetailActivity : AppCompatActivity() {
         val dataParcel = intent.extras.getParcelable<NewsResponse>("dataParcel")
 
         tv_judul.text = dataParcel.title
+        tv_pengarang.text = "By "+ dataParcel.by
 
 
     }

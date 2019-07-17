@@ -30,8 +30,10 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bindItem(newsResponse: NewsResponse, listener: (NewsResponse) -> Unit) {
 
-        itemView.tv_score.text = newsResponse.score.toString()
+        itemView.tv_score.text = "score : " + newsResponse.score.toString()
         itemView.title.text = newsResponse.title
+
+        itemView.tv_total_comment.text = "comment : " + newsResponse.kids?.size.toString()
 
         itemView.onClick {
             listener(newsResponse)
