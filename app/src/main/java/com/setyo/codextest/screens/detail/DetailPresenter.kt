@@ -25,6 +25,7 @@ class DetailPresenter(
                 .doRequest(Network.getComments(newsId)).await(),
                 CommentResponse::class.java
             )
+
             DetailView.setcommentadapter(listOf(data))
 
             Log.d("tagres", data.toString())

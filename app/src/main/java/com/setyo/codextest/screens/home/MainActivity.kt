@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.Menu
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import com.google.gson.Gson
 import com.setyo.codextest.R
-import com.setyo.codextest.data.network.models.News
 import com.setyo.codextest.data.network.models.NewsResponse
 import com.setyo.codextest.data.network.service.ApiService
 import com.setyo.codextest.screens.detail.DetailActivity

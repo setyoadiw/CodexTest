@@ -45,7 +45,7 @@ class DetailActivity : AppCompatActivity() , DetailView{
         tv_judul.text = dataParcel.title
         tv_pengarang.text = "By "+ dataParcel.by
 
-        for (i in 1..dataParcel.kids!!.size-1) {
+        for (i in 0..dataParcel.kids!!.size-1) {
             presenter.getComment(dataParcel.kids[i].toString())
         }
 
